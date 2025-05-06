@@ -1,0 +1,193 @@
+
+{% load static %}
+{% static "/static/images" as baseUrl %}
+{% static "/static/js" as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PureAQI</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/style/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-wrap">
+                <div class="logo">
+                    <h1>PureAQI</h1>
+                    <nav>
+                        <ul>
+                            <li><a href=index.html style="text-decoration: none;">Home</a></li>
+                            <li>Air Quality</li>
+                            <li>News</li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="navbar">
+                   <div class="search-bar">
+                    <div class="search-container">
+                        <form method="GET" action="{% url 'airquality' %}" style="height: 100%;">
+                            <div class="search-icon">
+                                <img src="https://www.iqair.com/dl/web/svg/ic-search-black.svg" alt="">
+                            </div>
+                            <input type="text" placeholder="Search Location" value="" name="search-location" id="search-location" >
+                        </form>
+                    </div>
+                   </div>
+                   <div class="signin">
+                    <nav>
+                        <ul>
+                            <li>Sign-In</li>
+                            <li>Sign-Up</li>
+                        </ul>
+                    </nav>
+                </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="Air-Quality-1">
+        <div class="container">
+            <div class="aq-1-wrap">
+                <div class="aq-1-1">
+                    <h1 id="city">Air quality in {{searched_city}}</h1>
+                    <h2 id="city">Air quality index (AQI⁺) and PM2.5 air pollution in {{searched_city}}</h2>
+                    <p>Last update at 07:30, Feb 28</p>
+                </div>
+                <div class="aq-1-2">
+                    <div class="a-q-container">
+                         <div class="aq-con-1-wrap">  
+                                <div class="aq-1-1-0">   
+                                    <div class="aq-1-2-1">
+                                            <div class="aq-1-2-1-1">
+                                                    <div class="aq-1-2-1-1-1">
+                                                            <p id="aqi">{{aqi_data.aqi}}*</p>
+                                                    </div> 
+                                                    <div class="aq-1-2-1-1-2">
+                                                            <h5>US AQI⁺</h5>
+                                                    </div>
+                                            </div>
+                                            <div class="aq-1-2-1-2">
+                                                <h3>Unhealthy for sensitive groups</h3>
+                                            </div>
+                                            <div class="aq-1-2-1-3">
+                                                <img src="https://www.iqair.com/dl/web/aqi/ic_face_48_orange.svg" alt="">
+                                            </div>
+                                    </div>
+                                    <div class="aq-1-2-2">
+                                            <div class="aq-1-2-2-1">
+                                                <h3>Main pollutant:</h3>
+                                                <p>PM10</p>
+                                            </div>
+                                            <div class="aq-1-2-2-2">
+                                                <h3 id="pm10">{{aqi_data.pm10}}  µg/m³</h3>
+                                            </div>
+                                    </div>
+                                </div> 
+                                <div class="aq-1-1-0-">
+                                    <div class="aq-1-1-0-a">
+                                        <img src="https://www.iqair.com/dl/web/weather/ic-w-04-scattered-clouds-full.svg" alt="" height="27px" width="27px">
+                                        <h4>{{ weather_data.temperature }}°C</h4>
+                                    </div>
+                                    <div class="aq-1-1-0-b">
+                                        <img src="https://www.iqair.com/dl/web/svg/ic-wind-s-sm-solid-weather-dk-gray-24.svg" alt="" height="27px" width="27px" style="transform: rotate(98deg);">
+                                        <h4>{{ weather_data.wind_speed }} km/h</h4>
+                                    </div>
+                                    <div class="aq-1-1-0-c">
+                                        <img src="https://www.iqair.com/dl/web/svg/ic-humidity-2-solid-weather-blue-16.svg" alt="" height="27px" width="27px">
+                                        <h4> {{ weather_data.humidity }}%</h4>
+                                    </div>
+                                </div>
+                         </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="Air-Quality-2">
+        <div class="container">
+            <h2>Concentration of Pollutants in <span class="city">Pune</span></h2>
+            <div class="aqi-sec-2-wrap">
+                <!-- <div class="loader"><img src="{% static '/static/images/loader.gif' %}" alt=""></div> -->
+                <div class="carbon-monoxide">
+                    <h3>Carbon Monoxide (CO)</h3>
+                    <h4>Concentration of CO is </h4>
+                    <p id="cm"><span>250.34</span> ppm</p>
+                </div>
+                <div class="nitrogen-dioxide">
+                    <h3>Nitrogen Dioxide (NO2)</h3>
+                    <h4>Concentration of NO2 is </h4>
+                    <p id="nd"><span>5.66</span> ppb</p>
+                </div>
+                <div class="ozone">
+                    <h3>Ozone (O3)</h3>
+                    <h4>Concentration of O3 is </h4>
+                    <p id="oz"><span>31.11</span> Dobson</p>
+                </div>
+                <div class="sulphur-dioxide">
+                    <h3>Sulphur Dioxide (SO2)</h3>
+                    <h4>Concentration of SO2 is </h4>
+                    <p id="sd"><span>1.34</span> ppm</p>
+                </div>
+                <div class="pm2">
+                    <h3>PM2.5</h3>
+                    <h4>Concentration of PM2.5 is </h4>
+                    <p id="pm2"><span>54.4</span> µg/m³</p>
+                </div>
+                <div class="pm-10">
+                    <h3>PM10</h3>
+                    <h4>Concentration of PM is </h4>
+                    <p id="pm10"><span>133.3</span> µg/m³</p>
+                </div>  
+
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer-wrap">
+                <div class="footer-sec-1">
+                    <div class="sec-1-right-side">
+                        <img src="https://www.iqair.com/dl/web/img/IWBI_Homepg.webp" alt="">
+                    </div>
+                    <div class="sec-1-left-side">
+                        <div class="sec-1-images">
+                        <img src="https://www.iqair.com/dl/web/svg/social-medias/ic-facebook-grey.svg" alt="">
+                        <img src="https://www.iqair.com/dl/web/social-icons/ic-x-solid-gray-500.svg" alt="">
+                        <img src="https://www.iqair.com/dl/web/svg/social-medias/ic-youtube-grey.svg" alt="">
+                        <img src="https://www.iqair.com/dl/web/svg/social-medias/ic-instagram-grey.svg" alt="">
+                        </div>
+                        <div class="sec-1-heading">
+                            <h2>PureAQI</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-sec-2">
+                    <div class="footer-right"> 
+                        <div class="footer-flag">
+                            <img src="https://cdn.airvisual.net/flags/india.jpg" alt="" height="24px" width="34px">
+                            <p>India</p>
+                        </div>
+                        <div class="footer-metric">
+                            <img src="https://www.iqair.com/dl/web/svg/ic-setting-gray-500.svg"  alt="">
+                            <p>AQI⁺ US, Metric</p>
+                        </div>
+                    </div>
+                    <div class="footer-left">
+                        <p>Terms of Use</p>
+                        <div class="footer-policy">
+                            <img src="https://www.iqair.com/dl/web/svg/ic-privacy-options.svg"  alt="" height="17px" width="38px">
+                            <p>Privacy Policy</p>
+                        </div> 
+                        <p>© 2025 PureAQI. All rights reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+</body>
+</html>

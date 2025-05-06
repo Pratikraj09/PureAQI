@@ -1,0 +1,162 @@
+{% load static %}
+{% static "/static/images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css"  href= "{% static '/style/styles.css' %}">
+    <title>PureAQI</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-wrap">
+                <div class="logo">
+                    <h1>PureAQI</h1>
+                    <nav>
+                        <ul>
+                            <li>Home</li>
+                            <li><a href=/landing/airquality.html style="text-decoration: none;">Air Quality</a></li>
+                            <li>News</li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="navbar">
+                   <div class="search-bar">
+                    <div class="search-container">
+                        <div class="search-icon">
+                            <img src="https://www.iqair.com/dl/web/svg/ic-search-black.svg" alt="">
+                        </div>
+                        <input type="text" placeholder="Search">
+                    </div>
+                   </div>
+                   <div class="signin">
+                    <nav>
+                        <ul>
+                            <li>Sign-In</li>
+                            <li>Sign-Up</li>
+                        </ul>
+                    </nav>
+                </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <div class="section-1-wrap">
+                <article>
+                    <h2>Air Quality Index (AQI) Basics</h2>
+                    <h3>How does the AQI work?</h3>
+                    <p>
+                        The U.S. Air Quality Index (AQI) is EPA's tool for communicating about outdoor air quality and health. The AQI includes six color-coded categories, each corresponding to a range of index values. The higher the AQI value, the greater the level of air pollution and the greater the health concern. For example, an AQI value of 50 or below represents good air quality, while an AQI value over 300 represents hazardous air quality.
+                    </p>
+                    <p>
+
+                        For each pollutant an AQI value of 100 generally corresponds to an ambient air concentration that equals the level of the short-term national ambient air quality standard for protection of public health. AQI values at or below 100 are generally thought of as satisfactory. When AQI values are above 100, air quality is unhealthy: at first for certain sensitive groups of people, then for everyone as AQI values get higher.
+                    </p>
+                    <p>
+                        The AQI is divided into six categories. Each category corresponds to a different level of health concern. Each category also has a specific color. The color makes it easy for people to quickly determine whether air quality is reaching unhealthy levels in their communities.
+                    </p>
+                    <h3>AQI Basics for Ozone and Particle Pollution</h3>
+                    <table>
+                        <tr class="heading">
+                            <th style="width: 15%;">Daily AQI Color</th>
+                            <th style="width: 15%;">Levels of Concern</th>
+                            <th style="width: 15%;">Values of Index</th>
+                            <th style="width: 30%;">Description of Air Quality</th>
+                        </tr>
+                        <tr class="Green">
+                            <td>Green</td>
+                            <td>Good</td>
+                            <td>0 to 50</td>
+                            <td>Air quality is satisfactory, and air pollution poses little or no risk.</td>
+                        </tr>
+                        <tr class="Yellow">
+                            <td>Yellow</td>
+                            <td>Moderate</td>
+                            <td>51 to 100</td>
+                            <td>Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive to air pollution.</td>
+                        </tr>
+                        <tr class="Orange">
+                            <td>Orange</td>
+                            <td>Unhealthy for Sensitive Groups</td>
+                            <td>101 to 150</td>
+                            <td>Members of sensitive groups may experience health effects. The general public is less likely to be affected.</td>
+                        </tr>
+                        <tr class="Red">
+                            <td>Red</td>
+                            <td>Unhealthy</td>
+                            <td>151 to 200</td>
+                            <td>Some members of the general public may experience health effects; members of sensitive groups may experience more serious health effects.</td>
+                        </tr>
+                        <tr class="Purple">
+                            <td>Purple</td>
+                            <td>Very Unhealthy</td>
+                            <td>201 to 300</td>
+                            <td>Health alert: The risk of health effects is increased for everyone.</td>
+                        </tr>
+                        <tr class="Maroon">
+                            <td>Maroon</td>
+                            <td>Hazardous</td>
+                            <td>301 and higher</td>
+                            <td>Health warning of emergency conditions: everyone is more likely to be affected.</td>
+                        </tr>
+                    </table>
+                    <h3>Five major pollutants</h3>
+                    <ul>
+                        <li>ground-level ozone</li>
+                        <li>particle pollution (also known as particulate matter, including PM2.5 and PM10)</li>
+                        <li>carbon monoxide</li>
+                        <li>sulfur dioxide</li>
+                        <li>nitrogen dioxide</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer-wrap">
+                <div class="footer-sec-1">
+                    <div class="sec-1-right-side">
+                        <img src="https://www.iqair.com/dl/web/img/IWBI_Homepg.webp" alt="">
+                    </div>
+                    <div class="sec-1-left-side">
+                        <div class="sec-1-images">
+                        <img src="https://www.iqair.com/dl/web/svg/social-medias/ic-facebook-grey.svg" alt="">
+                        <img src="https://www.iqair.com/dl/web/social-icons/ic-x-solid-gray-500.svg" alt="">
+                        <img src="https://www.iqair.com/dl/web/svg/social-medias/ic-youtube-grey.svg" alt="">
+                        <img src="https://www.iqair.com/dl/web/svg/social-medias/ic-instagram-grey.svg" alt="">
+                        </div>
+                        <div class="sec-1-heading">
+                            <h2>PureAQI</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-sec-2">
+                    <div class="footer-right"> 
+                        <div class="footer-flag">
+                            <img src="https://cdn.airvisual.net/flags/india.jpg" alt="" height="24px" width="34px">
+                            <p>India</p>
+                        </div>
+                        <div class="footer-metric">
+                            <img src="https://www.iqair.com/dl/web/svg/ic-setting-gray-500.svg"  alt="">
+                            <p>AQI⁺ US, Metric</p>
+                        </div>
+                    </div>
+                    <div class="footer-left">
+                        <p>Terms of Use</p>
+                        <div class="footer-policy">
+                            <img src="https://www.iqair.com/dl/web/svg/ic-privacy-options.svg"  alt="" height="17px" width="38px">
+                            <p>Privacy Policy</p>
+                        </div> 
+                        <p>© 2025 PureAQI. All rights reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
